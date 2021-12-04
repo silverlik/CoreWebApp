@@ -1,0 +1,112 @@
+﻿
+
+@model WeatherForecast.Models.WeatherViewModel
+
+@{
+
+    ViewBag.Title = "Weather";
+}
+
+<h3>Get the weather conditions by searching.</h3>
+<h4> Parameters: city, zip code and country code or latitude and longtitude.</h4>
+
+<form method="post">
+    <table>
+        <tr>
+            <td>
+                <strong>City: </strong>
+            </td>
+            <td>
+                <input type="text" asp-for="City" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <strong>ZipCode:</strong>
+            </td>
+            <td>
+                <input type="text" asp-for="Zipcode" />
+            </td>    
+            <td>
+                <strong>Country:</strong>
+            </td>
+            <td>
+                <input type="text" asp-for="Country" />
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Latitude:</strong>
+            </td>
+            <td>
+                <input type="text" asp-for="Lat" />
+            </td>
+            <td>
+                <strong>Longtitude: </strong>
+                </td>
+            <td>
+                <input type="text" asp-for="Lon" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button asp-controller="Home" asp-action="Weather">Get Weather</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<div>
+    <h2>Weather Forecast</h2>
+    <table>
+
+        <tr>
+            <td>
+                <strong>City:</strong>  @Model.City
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Country: </strong>@Model.Country
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <strong>Latitude: </strong>@Model.Lat
+                <strong>Longitude: </strong>@Model.Lon
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Description:</strong> @Model.Description <img id="imgWeatherIconUrl" src=@Model.WeatherIcon title="Weather Icon" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Humidity:</strong> @Model.Humidity
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Temperature (Feels Like): </strong>@Model.TempFeelsLike
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Temperature (Min): </strong> @Model.TempMin
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Temperature (Max)</strong> @Model.TempMax
+            </td>
+        </tr>
+
+    </table>
+</div>
